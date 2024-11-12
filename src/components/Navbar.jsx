@@ -18,16 +18,22 @@ const Navbar = () => {
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      <li>
-        <NavLink to={"/login"}>Login</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/register"}>Register</NavLink>
-      </li>
-      {user && (
+      {user ? (
         <>
           <li>
             <NavLink to={"/orders"}>Orders</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/profile"}>Profile</NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <NavLink to={"/login"}>Login</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/register"}>Register</NavLink>
           </li>
         </>
       )}
@@ -60,7 +66,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Firebase-Auth</a>
+        <Link to={"/"} className="btn btn-ghost text-xl">
+          Firebase-Auth
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

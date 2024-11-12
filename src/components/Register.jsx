@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provaider/AuthProvaider";
 
 const Register = () => {
+  const navigate = useNavigate()
   const { createUser } = useContext(AuthContext);
 
   const handelRegister = (e) => {
@@ -16,6 +17,8 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        e.target.reset();
+        navigate('/')
       })
       .catch((error) => {
         console.log(error.message);
@@ -65,7 +68,7 @@ const Register = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
             </div>
           </form>
           <p className="p-5 pt-0">

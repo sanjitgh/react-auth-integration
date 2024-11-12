@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import AuthProvaider from "./provaider/AuthProvaider";
 import Order from "./components/Order";
 import PrivetRoutes from "./routes/PrivetRoutes";
+import Profile from "./components/Profile";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +31,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/orders",
-        element: <PrivetRoutes><Order></Order></PrivetRoutes>
-      }
+        element: (
+          <PrivetRoutes>
+            <Order></Order>
+          </PrivetRoutes>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivetRoutes>
+            <Profile></Profile>
+          </PrivetRoutes>
+        ),
+      },
     ],
   },
 ]);
